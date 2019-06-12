@@ -13,3 +13,4 @@
 * [Overview of Privacy Changes in Android Q (Google I/O'19)](overview-of-privacy-changes-in-android-q.md) :heart:
 * [What’s New in Shared Storage (Google I/O'19)](what-new-in-shared-storage.md) :heart:
 * [Android Studio: Tips and Tricks (Google I/O'19)](android-studio-tips-and-tricks.md)
+* [Android Jetpack: Understand the CameraX Camera-Support Library (Google I/O'19)](android-jetpack-understand-the-camerax-camera-support-library.md)
