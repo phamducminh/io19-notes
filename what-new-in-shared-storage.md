@@ -147,11 +147,38 @@ val thumb = resolver.loadThumbnail(item, Size(640, 480), null)
 
 ### Scoped Storage
 
+* When your app target Q, it's put into a "scoped" storage mode, meanning it no longer has direct access to /sdcard/. Attempting direct access will result in a `FileNotFoundException` or EPERM error
+* You continue to have direct access to all your [package-specific directories](what-new-in-shared-storage.md#what-is-shared-storage). Use either `MediaStore` or the Storage Access Framework to work with content beyond those locations.
 
+#### Beyond local
+
+> Intents like `ACTION_OPEN_DOCUMENT` and `ACTION_CREATE_DOCUMENT` give users the freedom to work with files in any local or remoe storage locations.
+
+![](https://github.com/phamducminh/io19-notes/blob/master/resources/beyond-local.png)
+
+Benefits:
+* Instead of building your own file-picking experience, they're now presented with a single uniform experience.
+
+#### Helping you adapt
+
+```xml
+<!-- Temporarily opt-out when targeting Q. -->
+<use-sdk android:targetSdkVersion="29" />
+<application
+    android:requestLegacyExternalStorage="true">
+```
+
+```java
+// Check what storage mode your app is running under
+if (Environment.isExternalStorageLegacy()) {
+    // ...
+}
+```
 
 # Reference
 
-* https://developer.android.com/preview/privacy/scoped-storage
+* [Scoped Storage](https://developer.android.com/preview/privacy/scoped-storage)
+* [Improvements in creating files on external storage](https://developer.android.com/preview/features#create-files-external-storage)
 
 
 
